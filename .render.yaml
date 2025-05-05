@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: laraclient
+    env: docker
+    plan: free
+    repo: https://github.com/asauradev/laraclient.git
+    branch: master
+    rootDir: .
+    dockerfilePath: Dockerfile
+    buildCommand: "composer install --no-dev --optimize-autoloader"
+    startCommand: "./start.sh"
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
